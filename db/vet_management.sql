@@ -13,6 +13,10 @@ CREATE TABLE animals (
     dob VARCHAR,
     age VARCHAR,
     owner VARCHAR,
-    ow
-
-)
+    owner_tel VARCHAR,
+    owner_email VARCHAR,
+    notes TEXT,
+    vet_id INTEGER NOT NULL,
+        FOREIGN KEY (vet_id)
+         REFERENCES vets (id)
+);
