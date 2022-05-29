@@ -14,6 +14,18 @@ def vets():
     return render_template("/vets/index.html", vets=vets)
 
 
+@vets_blueprint.route("/vets/<id>")
+def show(id):
+    vet = vet_repository.select(id)
+    return render_template("vets/edit.html", vet=vet)
+
+
+@vets_blueprint.route("/vets/<id>/edit", methods=['GET'])
+def edit_vet(id):
+    vet = vet_repository.select(id)
+    return render_template('vets')
+
+
 @vets_blueprint.route("/vets/new")
 def new_vet():
     return render_template("/vets/new.html")

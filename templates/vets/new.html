@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+
+<form class="edit-add" action="/vets" method="POST">
+    <fieldset>
+        <legend><h2>Add a new vet to the practice:</h2></legend>
+        <label for="name">Vet's Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+
+        <input type="submit" value="Add Vet">
+    </fieldset>
+</form>
+
+{% endblock %}

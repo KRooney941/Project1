@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block content %}
+
+<form class="edit-add" action="/animals/{{animal.id}}" method="POST">
+    <div>
+        <label><h2>Edit the Details of {{animal.name}} the {{animal.type}}</h2></label>
+    </div>
+
+    <div>
+        <label for="name">Animal's Name:</label><br>
+        <input type="text" id="name" name="name" value="{{animal.name}}"><br>
+    </div>
+
+    <div>
+        <label for="type">Animal Type:</label><br>
+        <input type="text" id="type" name="type" value="{{animal.type}}"><br>   
+    </div>
+
+    <div>
+        <label for="dob">Date of Birth:</label><br>
+        <input type="text" id="dob" name="dob" value="{{animal.dob}}"><br>
+    </div>
+
+    <div>
+        <label for="age">Animal's Age:</label><br>
+        <input type="text" id="age" name="age" value="{{animal.age}}"><br>
+    </div>
+
+    <div>
+        <label for="owner">Animal's Owner:</label><br>
+        <input type="text" id="owner" name="owner" value="{{animal.owner}}"><br>
+    </div>
+
+    <div>
+        <label for="owner_tel">Owner's Telephone:</label><br>
+        <input type="text" id="owner_tel" name="owner_tel" value="{{animal.owner_tel}}"><br>
+    </div>
+
+    <div>
+        <label for="owner_email">Owner's Email:</label><br>
+        <input type="text" id="owner_email" name="owner_email" value="{{animal.owner_email}}"><br>
+    </div> 
+    
+    <div>
+        <label for="notes">Treatment Notes:</label>
+        <textarea name="notes" id="notes" cols="30" rows="5">{{animal.notes}}</textarea></br>
+    </div>
+
+    <div>
+        <label for="vet_id">Assign a Vet:</label>
+        <select id="vet" name="vet_id">
+            {% for vet in all_vets %}
+              <option value="{{ vet.id }}"
+                {% if animal.vet.id == vet.id %} selected="selected"{% endif %}>
+                {{ vet.name() }}
+              </option>
+            {% endfor %}
+    </div>
+
+    <button type="submit">Update Details</button>
+    
+</form>
+
+{% endblock %}

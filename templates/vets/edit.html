@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+
+<form class="edit-add" action="/vets/{{vet.id}}" method="POST">
+    <div>
+        <label><h2>Edit the Details of {{vet.name}}</h2></label>
+    </div>
+
+    <div>
+        <label for="name">Vet's Name:</label><br>
+        <input type="text" id="name" name="name" value="{{vet.name}}"><br>
+    </div>
+
+    <button type="submit">Update Details</button>
+    
+</form>
+
+{% endblock %}

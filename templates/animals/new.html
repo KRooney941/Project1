@@ -1,0 +1,63 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<form action="/animals" method="POST">
+    
+    <div class="add_new_animal">
+        <div>
+            <h2>Add a new animal to the practice:</h2>
+        </div>    
+            <label for="name">Animal's Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+       
+        <div>
+            <label for="type">Animal Type:</label><br>
+            <input type="text" id="type" name="type"><br>
+        </div>
+
+        <div>
+            <label for="dob">Date of Birth:</label><br>
+            <input type="text" id="dob" name="dob"><br>
+        </div>
+
+        <div>
+            <label for="age">Animal's Age:</label>
+            <input type="text" id="age" name="age">
+        </div>
+
+        <div>
+            <label for="owner">Animal's Owner:</label>
+            <input type="text" id="owner" name="owner">
+        </div>
+
+
+        <div>
+            <label for="owner_tel">Owner's Telephone:</label>
+            <input type="text" id="owner_tel" name="owner_tel">
+        </div>
+        
+        <div>
+            <label for="owner_email">Owner's Email:</label><br>
+            <input type="text" id="owner_email" name="owner_email">
+        </div>
+
+
+        <div>
+            <label for="notes">Treatment Notes:</label>
+            <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="assign_vet">
+            <label for="vet_id">Assign a Vet:</label>
+            <select id="vet" name="vet_id" size="1">
+                {% for vet in all_vets %}
+                <option value="{{vet.id}}">{{vet.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+            <button type="submit">Add Animal</button>
+    </div>
+</form>
+
+{% endblock %}

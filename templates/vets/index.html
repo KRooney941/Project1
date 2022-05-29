@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>All Active Vets</h2>
+
+{% for vet in vets %}
+<a href="/vets/{{vet.id}}">{{vet.name}}</a>
+    <form action="/vets/{{vet.id}}/delete" method="POST">
+        <button class="vet-delete" type="submit" value="delete">DELETE VET</button>
+    </form>
+</p>
+
+
+{% endfor %}
+</table>
+
+{% endblock %}

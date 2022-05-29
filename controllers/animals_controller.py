@@ -14,16 +14,10 @@ def animals():
     return render_template("animals/index.html", all_animals=animals)
 
 
-@animals_blueprint.route("/animals/<id>")
-def show_animal(id):
-    animal = animal_repository.select(id)
-    return render_template("/animals/show.html", animal=animal)
-
-
 @animals_blueprint.route("/animals/new", methods=['GET'])
 def new_animal():
     vets = vet_repository.select_all()
-    return render_template("/animals/new.html")
+    return render_template("/animals/new.html", all_vets=vets)
 
 
 @animals_blueprint.route("/animals", methods=["POST"])
@@ -67,7 +61,13 @@ def update_animal(id):
     return render_template("/animals/show.html", animal=animal, vets=vet)
 
 
+@animals_blueprint.route("/animals/<id>")
+def show_animal(id):
+    animal = animal_repository.select(id)
+    return render_template("/animals/show.html", animal=animal)
+
+
 @animals_blueprint.route("/animals/<id>/delete", methods=['POST'])
 def delete_animal(id):
     animal_repository.delete(id)
-    return redirect("/animals")
+    return redirect('/animals')
