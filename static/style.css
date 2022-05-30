@@ -54,4 +54,25 @@ footer > p {
     background-size: cover;
   }
 
-
+  #birds {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #birds td, #birds th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #birds tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #birds tr:hover {background-color: #ddd;}
+  
+  #birds th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: blue;
+    color: white;
+  }

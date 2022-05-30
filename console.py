@@ -5,8 +5,9 @@ from models.vet import Vet
 import repositories.animal_repository as animal_repository
 import repositories.vet_repository as vet_repository
 
-vet_repository.delete_all()
+
 animal_repository.delete_all()
+vet_repository.delete_all()
 
 vet_1 = Vet("Dr Frank")
 vet_repository.save(vet_1)

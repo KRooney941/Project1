@@ -41,7 +41,7 @@ def add_animal():
 def edit_animal(id):
     animal = animal_repository.select(id)
     vet = vet_repository.select_all()
-    return render_template('animal')
+    return render_template('/animals/edit.html', animal=animal, vet=vet)
 
 
 @animals_blueprint.route("/animals/<id>", methods=['POST'])
@@ -55,9 +55,11 @@ def update_animal(id):
     owner_tel = request.form["owner_tel"]
     owner_email = request.form["owner_email"]
     vet = vet_repository.select(request.form['vet_id'])
-    animal = Animal(name, type, dob, age, notes,
-                    owner, owner_email, owner_tel, vet)
+    animal = Animal(name, type, dob, age, owner,
+                    owner_email, owner_tel, notes, vet)
     animal_repository.update(animal)
+    # return redirect('/animals')
+
     return render_template("/animals/show.html", animal=animal, vets=vet)
 
 

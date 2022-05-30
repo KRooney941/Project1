@@ -3,7 +3,7 @@ PRAGMA FOREIGN_KEYS = ON;
 DROP TABLE IF EXISTS animals;
 DROP TABLE IF EXISTS vets;
 
-CREATE TABLE vets (
+CREATE TABLE IF NOT EXISTS vets (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR
 );
@@ -19,6 +19,6 @@ CREATE TABLE animals (
     owner_email VARCHAR,
     notes TEXT,
     vet_id INTEGER NOT NULL,
-        FOREIGN KEY (vet_id)
-         REFERENCES vets (id)
+        FOREIGN KEY (vet_id) 
+         REFERENCES vets (id) ON DELETE CASCADE
 );

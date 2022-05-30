@@ -7,16 +7,19 @@
     <p>Name:{{animal.name}}</p>
     <hr>
     <p>Type:{{animal.type}}</p>
-    <p>D.O.B{{animal.dob}}</p>
+    <p>D.O.B:{{animal.dob}}</p>
     <p>Age:{{animal.age}} Years Old</p>
     <p>Owner Name:{{animal.owner}}</p>
     <p>Owner Tel. No:{{animal.owner_tel}} </p>
     <p>Owner Email:{{animal.owner_email}}</p>
-    <p>Vet Name:{{animal.vet.name}} Years Old</p>
+    <p>Vet Name:{{animal.vet.name}} </p>
     <p>Treatment Notes:{{animal.notes}} </p>
     <p><a href="/animals/{{ animal.id }}/edit">EDIT ANIMAL</a></p>
-    <form action="/animals/{{animal.id}}/delete" method="POST">
-                <button type="submit" value="delete">DELETE ANIMAL</button>
+    <div class="buttons">
+      <form class="delete-form" action="/animals/{{animal.id}}/delete" method="POST">
+        <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
+      </form>
   </div>
 
 {% endblock %}
+

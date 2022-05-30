@@ -2,49 +2,39 @@
 {% block content %}
 
 
-{% for animal in all_animals %}
   <div class="animal">
     <div class="content">
-      <a href="/animals/{{animal.id}}">{{animal.name}}</a>
+      
       <div class="details">
-        <div>
-            <p>Type:</p>
-            <p>{{animal.type}}</p>
-        </div>
-        <div>
-            <p>D.O.B.:</p>
-            <p>{{animal.dob}}</p>
-        </div>
-        <div>
-            <p>Age:</p>
-            <p>{{animal.age}} Years Old</p>
-        </div>
-        <div>
-            <p>Treatment Notes:</p>
-            <p>{{animal.notes}}</p>
-        </div>
-        <div>
-            <p>Owner:</p>
-            <p>{{animal.owner}}</p>
-        </div>
-        <div>
-            <p>Owner Tel. No.:</p>
-            <p>{{animal.owner_tel}}</p>
-        </div>
-        <div>
-            <p>Owner Email:</p>
-            <p>{{animal.owner_email}}</p>
-        </div>
-        <div>
-            <p>Vet:</p>
-            <p>{{animal.vet.name}}</p>
-        </div>
-      <div class="buttons">
-        <form class="delete-form" action="/animals/{{animal.id}}/delete" method="POST">
-          <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
-        </form>
+        <table id="birds">
+          <tr>
+            <th>Name</th>
+            <th>Type of Bird</th>
+            <th>Date of Birth</th>
+            <th>Age</th>
+            <th>Owner</th>
+            <th>Owner_tel</th>
+            <th>Owner_email</th>
+            <th>Vet</th>
+            <th>Notes</th>
+          </tr>
+          {% for animal in all_animals %}
+          <tr>
+            <td><a href="/animals/{{animal.id}}">{{animal.name}}</a></td>
+            <td>{{animal.type}}</td>
+            <td>{{animal.dob}}</td>
+            <td>{{animal.age}}</td>
+            <td>{{animal.owner}}</td>
+            <td>{{animal.owner_tel}}</td>
+            <td>{{animal.owner_email}}</td>
+            <td>{{animal.vet.name}}</td>
+            <td>{{animal.notes}}</td>
+          </tr>
+         {% endfor %}
+        </table>
+        
     </div>
   </div>
-{% endfor %}
+
 
 {% endblock %}

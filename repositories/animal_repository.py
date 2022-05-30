@@ -6,9 +6,9 @@ import repositories.vet_repository as vet_repository
 
 
 def save(animal):
-    sql = "INSERT INTO animals (name, type, dob, age, notes, owner, owner_tel, owner_email, vet_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING * "
-    values = [animal.name, animal.type, animal.dob, animal.age, animal.notes,
-              animal.owner, animal.owner_tel, animal.owner_email, animal.vet.id]
+    sql = "INSERT INTO animals (name, type, dob, age, owner, owner_tel, owner_email, notes, vet_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING * "
+    values = [animal.name, animal.type, animal.dob, animal.age, animal.owner,
+              animal.owner_tel, animal.owner_email, animal.notes, animal.vet.id]
     results = run_sql(sql, values)
     id = results[0]['id']
     animal.id = id
@@ -23,8 +23,8 @@ def select_all():
 
     for row in results:
         vet = vet_repository.select(row['vet_id'])
-        animal = Animal(row['name'], row['type'], row['dob'], row['age'], row['notes'],
-                        row['owner'], row['owner_tel'], row['owner_email'], vet, row['id'])
+        animal = Animal(row['name'], row['type'], row['dob'], row['age'],
+                        row['owner'], row['owner_tel'], row['owner_email'], row['notes'], vet, row['id'])
         animals.append(animal)
     return animals
 
@@ -37,8 +37,8 @@ def select(id):
 
     if result is not None:
         vet = vet_repository.select(result['vet_id'])
-        animal = Animal(result['name'], result['dob'], result['age'], result['owner'],
-                        result['owner_tel'], result['owner_email'], result['notes'], vet, result['id'])
+        animal = Animal(result['name'], result['type'], result['dob'], result['age'],
+                        result['owner'], result['owner_tel'], result['owner_email'], result['notes'], vet, result['id'])
     return animal
 
 

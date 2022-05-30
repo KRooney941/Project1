@@ -44,18 +44,18 @@
         <label for="notes">Treatment Notes:</label>
         <textarea name="notes" id="notes" cols="30" rows="5">{{animal.notes}}</textarea></br>
     </div>
-
-    <div>
+    <div class="assign_vet_edit">
         <label for="vet_id">Assign a Vet:</label>
-        <select id="vet" name="vet_id">
+        <select id="vet" name="vet_id" size="1">
             {% for vet in all_vets %}
-              <option value="{{ vet.id }}"
-                {% if animal.vet.id == vet.id %} selected="selected"{% endif %}>
-                {{ vet.name() }}
-              </option>
+            <option value="{{vet.id}}">{{vet.name}}</option>
             {% endfor %}
+        </select>
     </div>
 
+</div>
+</form>
+    
     <button type="submit">Update Details</button>
     
 </form>
