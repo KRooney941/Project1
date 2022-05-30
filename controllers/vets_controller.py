@@ -20,11 +20,18 @@ def show(id):
     return render_template("vets/edit.html", vet=vet)
 
 
-@vets_blueprint.route("/vets/<id>/edit", methods=['GET'])
+@vets_blueprint.route("/vets/<id>", methods=['GET'])
 def edit_vet(id):
-    name = request.form["name"]
     vet = vet_repository.select(id)
     return render_template('vets', vet=vet)
+
+
+@vets_blueprint.route("/vets/<id>/edit", methods=["POST"])
+def update_vet(id):
+    name = request.form['name']
+    vet = Vet(name, id)
+    vet_repository.update(vet)
+    return redirect('/vets')
 
 
 @vets_blueprint.route("/vets/new")
@@ -43,4 +50,4 @@ def add_vet():
 @vets_blueprint.route("/vets/<id>/delete", methods=['POST'])
 def delete_vet(id):
     vet_repository.delete(id)
-    return redirect("/vets/")
+    return redirect("/vets")

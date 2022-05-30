@@ -8,30 +8,29 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <title>Vet Management</title>
 </head>
-<body>
+
   <header>
-    
+    <h1> Frank and Teddy's Avian Vet</h1>
     <nav>
-      <ul class="home">
+      <ul class="url_buttons">
         <li><a href="{{ url_for('home') }}">Home &#127968</a></li>
+        <li><a href="{{ url_for('animals.animals') }}">All Birds</a></li>
+        <li><a href="{{ url_for('animals.new_animal') }}">Add New Bird</a></li>
+        <li><a href="{{ url_for('vets.vets') }}">All Vets</a></li>
+        <li><a href="{{ url_for('vets.new_vet') }}">Add New Vets</a></li>
       </ul>
     </nav>
-    <h1> Frank and Teddy's Avian Vet</h1>
   </header>
+  
   <div class="container">
     {% block content %}
     {% endblock %}
   </div>
-  
   <main>
-    <div class="buttons">
-        <button><a href="{{ url_for('animals.animals') }}">All Birds</a></button>
-        <button><a href="{{ url_for('animals.new_animal') }}">Add New Bird</a></button>
-        <button><a href="{{ url_for('vets.vets') }}">All Vets</a></button>
-        <button><a href="{{ url_for('vets.new_vet') }}">Add New Vets</a></button>
-    </div>
+    
     {%block home%}
     {% endblock %}
+    </body>
   </main>
   <footer>
     <p>For tech support contact Kieran on 07922175003 or email @ <a href="mailto:kieran@codeclan.com?subject=Mail from Our Site">kieran@codeclan.com</a></p>
