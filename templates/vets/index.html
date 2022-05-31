@@ -1,16 +1,21 @@
 {% extends 'base.html' %} {% block content %}
-
-<h2>All Active Vets</h2>
+<div class ="all_vets">
+<fieldset>
+<h2>All Active Vets:</h2>
 
 {% for vet in vets %}
 <a href="/vets/{{vet.id}}">{{vet.name}}</a>
-    <form action="/vets/{{vet.id}}/delete" method="POST">
-        <button class="vet-delete" type="submit" value="delete">DELETE VET</button>
+    <div class="delete_button_vet">
+    <form class="delete-form" action="/vets/{{vet.id}}/delete" method="POST">
+        <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
     </form>
+</div>
 </p>
 
 
 {% endfor %}
-</table>
+</fieldset>
+</div>
 
 {% endblock %}
+

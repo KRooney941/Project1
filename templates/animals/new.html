@@ -6,39 +6,41 @@
     <div class="add_new_animal">
         <div>
             <h2>Add a new animal to the practice:</h2>
-        </div>    
-            <label for="name">Animal's Name:</label><br>
-            <input type="text" id="name" name="name"><br>
-       
+        </div>
+        
         <div>
-            <label for="type">Animal Type:</label><br>
-            <input type="text" id="type" name="type"><br>
+            <label for="name">Bird's Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Name"><br>
+        </div>
+        <div>
+            <label for="type">Bird Type:</label><br>
+            <input type="text" id="type" name="type" placeholder="Type"><br>
         </div>
 
         <div>
             <label for="dob">Date of Birth:</label><br>
-            <input type="text" id="dob" name="dob"><br>
+            <input type="text" id="dob" name="dob" placeholder="DD/MM/YYYY"><br>
         </div>
 
         <div>
             <label for="age">Animal's Age:</label>
-            <input type="text" id="age" name="age">
+            <input type="text" id="age" name="age" placeholder="Age">
         </div>
 
         <div>
-            <label for="owner">Animal's Owner:</label>
-            <input type="text" id="owner" name="owner">
+            <label for="owner">Owner Name:</label>
+            <input type="text" id="owner" name="owner" placeholder="Name">
         </div>
 
 
         <div>
             <label for="owner_tel">Owner's Telephone:</label>
-            <input type="text" id="owner_tel" name="owner_tel">
+            <input type="text" id="owner_tel" name="owner_tel" placeholder="Tel. No.">
         </div>
         
         <div>
             <label for="owner_email">Owner's Email:</label><br>
-            <input type="text" id="owner_email" name="owner_email">
+            <input type="text" id="owner_email" name="owner_email" placeholder="Email">
         </div>
 
 
@@ -55,8 +57,9 @@
                 {% endfor %}
             </select>
         </div>
-
+        <div class="add_animal_button">
             <button type="submit">Add Animal</button>
+        </div>
     </div>
 </form>
 
