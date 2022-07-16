@@ -11,3 +11,5 @@ There are several things I wanted to add to the project, but ran out of time. I 
 How to Install and Run the Project:
 
 First you will have to clone the repo using "github git@github.com:KRooney941/Project1.gitTo" in the terminal. Then to run the project you have to have to have sqlite3, flask and python3 installed. Then seed the database using “sqlite3 db/vet_management.db < db/vet_management.sql” in the terminal, then run python3 console.py also in the terminal. Then enter “flask run” in the terminal.
+
+<img width="1436" alt="Screenshot 2022-06-21 at 17 51 54" src="https://user-images.githubusercontent.com/102115466/179349727-04f1c251-9460-439a-b962-91b9c090d367.png">
